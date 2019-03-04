@@ -1,1 +1,10 @@
 <h1>Popup!</h1>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Badge Text" [(ngModel)]="badgeText" name="badgeText">
+    </mat-form-field>
+</form>
+<button mat-button color="primary" (click)="setText()">Set Text</button>
+<button mat-button color="primary" (click)="showCurrentTab()">Show Current Tab</button>
+<button mat-raised-button class="red-button" (click)="setColor('#f44')">Red</button>
+<button mat-raised-button class="green-button" (click)="setColor('#484')">Green</button>

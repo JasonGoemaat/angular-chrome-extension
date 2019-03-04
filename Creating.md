@@ -156,3 +156,31 @@ Now add this to `src/manifest.json`:
         "page": "options/index.html",
         "open_in_tab": false
     },
+
+### 8 - using chrome apis
+
+Run this to add types for chrome addins:
+
+    yarn add @types/chrome
+
+I then modified the popup to include a text field and button that will set the
+badge text of the browser action.  There are also two buttons to change the badge
+background, red and green.  Finally a button that will output information about
+the current tab to the console (right-click on the browser action and select
+inspect popup to see the console).  That requires this to be added to the
+manifest (at least tabs, activeTab, and the urls you want to use it on):
+
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab",
+        "http://*/*",
+        "https://*/*"
+    ]
+
+
+
+# Links
+
+* https://www.red-gate.com/simple-talk/dotnet/software-tools/developing-google-chrome-extension-using-angular-4/
+* https://developer.chrome.com/extensions/api_index

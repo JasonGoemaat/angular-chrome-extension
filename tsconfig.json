@@ -24,6 +24,9 @@
       "extension-common/*": [
         "dist/extension-common/*"
       ]
-    }
+    },
+    "types": [
+      "Chrome"
+    ]
   }
 }

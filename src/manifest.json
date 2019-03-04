@@ -24,5 +24,12 @@
     "options_ui": {
         "page": "options/index.html",
         "open_in_tab": false
-    }
+    },
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab",
+        "http://*/*",
+        "https://*/*"
+    ]
 }
