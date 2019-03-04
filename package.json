@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-all": "ng build && ng build background && ng build popup",
-    "build-all-prod": "ng build --prod && ng build background --prod && ng build popup --prod",
+    "build-all": "ng build && ng build background && ng build popup && ng build options",
+    "build-all-prod": "ng build --prod && ng build background --prod && ng build popup --prod && ng build options --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

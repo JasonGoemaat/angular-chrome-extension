@@ -88,7 +88,7 @@ The normal build includes sourcemaps and is much faster (about 30 seconds), the 
 version does ahead-of-time compilation and tree-shaking, producing much smaller files
 but takes longer (60-90s).
 
-### '6' - icons and browser action
+### '6' - icons and browser action with popup
 
 I created a `src\assets\icons` directory.  Using [inkscape](https://inkscape.org/) I created
 `icon.svg` and exported to various sizes of icons.  Updating the `manifest.json`:
@@ -112,7 +112,9 @@ the style changes to include material, font-awesome, etc.
 
     ng g application popup --style=scss
 
-Now you should be able to `npm run build-all` and go to:
+Now you should be able to `npm run build-all` and go to: 
+
+    chrome-extension://imbnlmnmddaeggfahkkndklokfoieofn/popup/index.html
 
 > Note: If you are just working on one part, say the popup, you can run
 > `ng build popup --watch` and it will auto-rebuild when you make changes,
@@ -134,3 +136,23 @@ the app:
 
 Now `npm run build-all` and you can see the popup when you click on the
 browser action icon.
+
+### 7 - options
+
+Let's create a new page for options:
+
+    ng g application options --style=scss
+
+And do things we've done for other pages:
+
+1. Set output path to `dist/extension/options` in `angular.json`
+2. Add `_variables.scss` and update `styles.scss` to include it, font-awesome, and our material theme
+3. Add it to `build-all` and `build-all-prod` scripts
+4. Remove `<base>` tag and update favicon in `index.html`
+
+Now add this to `src/manifest.json`:
+
+    "options_ui": {
+        "page": "options/index.html",
+        "open_in_tab": false
+    },
