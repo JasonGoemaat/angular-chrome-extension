@@ -178,6 +178,24 @@ manifest (at least tabs, activeTab, and the urls you want to use it on):
         "https://*/*"
     ]
 
+### 9 - webRequest
+
+To modify web requests synchronously, we need to add the `webRequest` and `webRequestBlocking`
+permissions to `manifest.json`:
+
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+
+Check out [the docs](https://developer.chrome.com/extensions/webRequest) for information.
+
+This simple sample is in `projects/background/intercept-web-requests.ts`.  It replaces the chrome
+icon with a request for my gravatar, and one of the css files with one tweaked to give
+the content a blue background.  This uses a `data:text/css;base64` data url.  It could have
+been plain text, but the hashes needed to be encoded.
+
+
+
 
 
 # Links
