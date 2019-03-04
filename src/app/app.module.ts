@@ -6,11 +6,13 @@ import { MatButtonModule, MatIconModule } from "@angular/material";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CapabilitiesComponent } from './capabilities/capabilities.component';
+import { OtherComponent } from './other/other.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CapabilitiesComponent
+    CapabilitiesComponent,
+    OtherComponent
   ],
   imports: [
     AppRoutingModule,
