@@ -7,5 +7,18 @@
     "background": {
         "page": "background/index.html",
         "persistent": true
+    },
+    "icons": {
+        "16": "assets/icons/icon-16.png",
+        "48": "assets/icons/icon-48.png",
+        "128": "assets/icons/icon-128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "16": "/assets/icons/icon-16.png",
+            "48": "/assets/icons/icon-48.png"
+        },
+        "default_title": "Extension",
+        "default_popup": "popup/index.html"
     }
 }

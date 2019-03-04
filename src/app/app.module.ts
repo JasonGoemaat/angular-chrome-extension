@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CapabilitiesComponent } from './capabilities/capabilities.component';
 import { OtherComponent } from './other/other.component';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CapabilitiesComponent,
-    OtherComponent
+    OtherComponent,
+    PopupComponent,
   ],
   imports: [
     AppRoutingModule,

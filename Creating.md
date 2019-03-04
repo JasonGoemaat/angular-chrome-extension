@@ -88,3 +88,49 @@ The normal build includes sourcemaps and is much faster (about 30 seconds), the 
 version does ahead-of-time compilation and tree-shaking, producing much smaller files
 but takes longer (60-90s).
 
+### '6' - icons and browser action
+
+I created a `src\assets\icons` directory.  Using [inkscape](https://inkscape.org/) I created
+`icon.svg` and exported to various sizes of icons.  Updating the `manifest.json`:
+
+    "icons": {
+        "16": "assets/icons/icon-16.png",
+        "48": "assets/icons/icon-48.png",
+        "128": "assets/icons/icon-128.png"
+    }
+
+And I updated the favicon link in the main and background `index.html` files:
+
+    <link rel="icon" type="image/x-icon" href="/assets/icons/icon-16.png">
+
+Now I create a popup application.  I was hoping I could use a route on the
+main page to access the popup, but I think the popup configuration only takes
+html files.  I updated the `build-all` scripts to include ng build popup` also.
+In angular.json I put it to go to `dist/extension/popup', and updated the
+`index.html` to have a) no base tag and b) use our icon as favicon.  Also made
+the style changes to include material, font-awesome, etc.
+
+    ng g application popup --style=scss
+
+Now you should be able to `npm run build-all` and go to:
+
+> Note: If you are just working on one part, say the popup, you can run
+> `ng build popup --watch` and it will auto-rebuild when you make changes,
+> but you'll still probably need to reload the extension from the
+> extensions page.
+
+In the manifest I added a browser action that will load the popup.  This
+is the icon to the right of the address bar.  I'll use the same icons for
+the app:
+
+    "browser_action": {
+        "default_icon": {
+            "16": "/assets/icons/icon-16.png",
+            "48": "/assets/icons/icon-48.png"
+        },
+        "default_title": "Extension",
+        "default_popup": "popup/index.html"
+    }
+
+Now `npm run build-all` and you can see the popup when you click on the
+browser action icon.
