@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "extension-common": [
+        "dist/extension-common"
+      ],
+      "extension-common/*": [
+        "dist/extension-common/*"
+      ]
+    }
   }
 }
